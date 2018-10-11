@@ -1,3 +1,3 @@
-Personal Vim conf
+#Personal Vim conf
 
-Rename _vimrc to .vimrc on Linux.
+Rename **_vimrc** to **.vimrc** on Linux.
