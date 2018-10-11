@@ -19,7 +19,6 @@ Plugin 'dracula/vim'
 Plugin 'wikitopian/hardmode'
 Plugin 'junegunn/fzf'
 Plugin 'colepeters/spacemacs-theme.vim'
-"Plugin 'Townk/vim-autoclose'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -29,25 +28,29 @@ source $VIMRUNTIME/vimrc_example.vim
 
 let g:neocomplete#enable_at_startup = 1
 
-
+" Use this only if you are on Windows
 set backup
 set backupdir=C:\Users\b0ss\AppData\Local\Temp
 set backupskip=C:\Users\b0ss\AppData\Local\Temp\*
 set directory=C:\Users\b0ss\AppData\Local\Temp
 set writebackup
 set noundofile
-"colorscheme dracula
 colorscheme spacemacs-theme
+"Changes the color of the column if you cross 100 chars
 call matchadd('colorcolumn', '\%81v', 100)
 set number
 set number relativenumber
+"Setting the font
 if has("gui_win32")
   set guifont=Source_Code_Pro:h12:cANSI
 endif
+"Setting the window size
 set lines=40 columns=90
 set encoding=utf-8
+"Mapping Nerdtree keybinds
 map <C-o> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
+"Remapping ESC to Ctrl + Space
 imap <C-Space> <Esc>
 " Change the document traversal speed
 noremap <C-y> 5<C-y>
