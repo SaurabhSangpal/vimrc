@@ -1,3 +1,3 @@
 # Personal Vim conf
 
-Rename **_vimrc** to **.vimrc** on Linux.
+Rename **.vimrc** to **_vimrc** on WinWindows
