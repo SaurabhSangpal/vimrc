@@ -19,8 +19,6 @@ if has("win32")
 elseif has("linux")
 	Plugin 'Valloric/YouCompleteMe'
 endif
-"Plugin 'Shougo/neocomplete.vim'
-Plugin 'Valloric/YouCompleteMe'"
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
