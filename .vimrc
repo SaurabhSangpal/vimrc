@@ -45,6 +45,7 @@ if has("linux")
 	set nobackup
 	set nowb
 	set noswapfile
+	set noundofile
 endif
 
 if has("win32")
@@ -56,12 +57,6 @@ if has("win32")
 endif
 
 " Changing undofile directory
-
-try
-	set undodir=~/.vimtemp/undodir
-	set undofile
-catch
-endtry
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Picking Colorscheme                                               "
