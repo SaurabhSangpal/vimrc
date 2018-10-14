@@ -14,11 +14,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-syntastic/syntastic'
-if has("win32")
-	Plugin 'Shougo/neocomplete.vim'
-elseif has("linux")
-	Plugin 'Valloric/YouCompleteMe'
-endif
 "Plugin 'Shougo/neocomplete.vim'
 Plugin 'Valloric/YouCompleteMe'"
 Plugin 'scrooloose/nerdtree'
