@@ -42,11 +42,9 @@ let g:neocomplete#enable_at_startup = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("linux")
-	set backup
-	set backupdir=~/.vimtemp/backup
-	set backupskip=~/.vimtemp/backup/*
-	set directory=~/.vimtemp/backup
-	set writebackup
+	set nobackup
+	set nowb
+	set noswapfile
 endif
 
 if has("win32")
@@ -66,7 +64,7 @@ catch
 endtry
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Picking Colorscheme                                          "
+" Picking Colorscheme                                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("linux") || has("gui_gtk2")
