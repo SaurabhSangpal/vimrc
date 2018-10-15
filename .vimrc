@@ -40,21 +40,10 @@ let g:neocomplete#enable_at_startup = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Changing Backup Directory                                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if has("linux")
-	set nobackup
-	set nowb
-	set noswapfile
-	set noundofile
-endif
-
-if has("win32")
-	set backup
-	set backupdir=C:\Users\b0ss\AppData\Local\Temp
-	set backupskip=C:\Users\b0ss\AppData\Local\Temp\*
-	set directory=C:\Users\b0ss\AppData\Local\Temp
-	set writebackup
-endif
+set nobackup
+set nowb
+set noswapfile
+set noundofile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Picking Colorscheme                                               "
@@ -68,7 +57,7 @@ endif
 
 "Changes the color of the column if you cross 100 chars
 
-call matchadd('colorcolumn', '\%81v', 100)
+highlight ColorColumn ctermbg=red
 
 " Display Number
 
@@ -110,7 +99,7 @@ map <C-f> :NERDTreeFind<CR>
 
 "Remapping ESC to Ctrl + Space
 
-imap <C-Space> <Esc>
+inoremap <C-Space> <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change the document traversal speed                               "
@@ -123,7 +112,9 @@ noremap <C-e> 5<C-e>
 
 set mouse=c
 
-" Set folding (collapse sections of code)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set folding (collapse sections of code)                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set foldmethod=indent
 set foldlevel=2
