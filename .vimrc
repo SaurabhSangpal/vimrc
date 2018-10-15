@@ -1,33 +1,37 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
 
-" set the runtime path to include Vundle and initialize
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-syntastic/syntastic'
+
+" Adding different autocomplete options for Windows and Linux.
+
 if has("win32")
 	Plugin 'Shougo/neocomplete.vim'
 elseif has("linux")
 	Plugin 'Valloric/YouCompleteMe'
 endif
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
-Plugin 'dracula/vim'
-Plugin 'wikitopian/hardmode'
 Plugin 'junegunn/fzf'
-Plugin 'colepeters/spacemacs-theme.vim'
 
-" All of your Plugins must be added before the following line
+" Use this next plugin only if you want to learn advanced
+" vim controls.
+
+"Plugin 'wikitopian/hardmode'
+
+if has("win32") || has("gui_win32")
+	Plugin 'colepeters/spacemacs-theme.vim'
+elseif has("gui_gtk") || has("linux")
+	Plugin 'dracula/vim'
+endif
 
 call vundle#end()            " required
 
@@ -35,10 +39,14 @@ filetype plugin indent on    " required
 
 source $VIMRUNTIME/vimrc_example.vim
 
-let g:neocomplete#enable_at_startup = 1
+" Enabling Neocomplete on startup
+
+if has("win32")
+	let g:neocomplete#enable_at_startup = 1
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Changing Backup Directory                                         "
+" Changing Backup Preferences                                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nobackup
 set nowb
@@ -58,6 +66,7 @@ endif
 "Changes the color of the column if you cross 100 chars
 
 highlight ColorColumn ctermbg=red
+call matchadd('colorcolumn', '\%81v', 100)
 
 " Display Number
 
@@ -97,9 +106,9 @@ set guioptions-=L
 map <C-o> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
 
-"Remapping ESC to Ctrl + Space
+"Remapping ESC
 
-inoremap <C-Space> <Esc>
+inoremap <S-Tab> <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change the document traversal speed                               "
