@@ -18,3 +18,5 @@ Place the vimrc file in __C:\Program Files(x86)\Vim\\__ folder.
 
 Clone the repo at a convenient location.
 Place the vimrc file at __~/.vimrc__.
+
+You can also use the **install.sh** script to install and configure Vundle and all other plugins.
