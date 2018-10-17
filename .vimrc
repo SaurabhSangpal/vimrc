@@ -11,9 +11,9 @@ Plugin 'vim-syntastic/syntastic'
 
 " Adding different autocomplete options for Windows and Linux.
 
-if has("win32")
+if has("win32") || has("gui_win32")
 	Plugin 'Shougo/neocomplete.vim'
-elseif has("linux")
+elseif has("linux") || has("gui_gtk") || has("unix")
 	Plugin 'Valloric/YouCompleteMe'
 endif
 
@@ -27,9 +27,11 @@ Plugin 'junegunn/fzf'
 
 "Plugin 'wikitopian/hardmode'
 
+" Adding different colorschemes for Windows and Linux.
+
 if has("win32") || has("gui_win32")
 	Plugin 'colepeters/spacemacs-theme.vim'
-elseif has("gui_gtk") || has("linux")
+elseif has("gui_gtk") || has("linux") || has("unix")
 	Plugin 'dracula/vim'
 endif
 
@@ -41,13 +43,14 @@ source $VIMRUNTIME/vimrc_example.vim
 
 " Enabling Neocomplete on startup
 
-if has("win32")
+if has("win32") || has("gui_win32")
 	let g:neocomplete#enable_at_startup = 1
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Changing Backup Preferences                                       "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set nobackup
 set nowb
 set noswapfile
@@ -57,13 +60,15 @@ set noundofile
 " Picking Colorscheme                                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if has("linux") || has("gui_gtk2")
+if has("linux") || has("gui_gtk2") || has("unix")
 	colorscheme dracula
 elseif has("win32") || has("gui_win32")
 	colorscheme spacemacs-theme
 endif
 
-"Changes the color of the column if you cross 100 chars
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Changes the color of the column if you cross 100 chars             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 highlight ColorColumn ctermbg=red
 call matchadd('colorcolumn', '\%81v', 100)
@@ -79,9 +84,7 @@ set number relativenumber
 
 if has("win32")
 	set gfn=Hack:h14,IBM\ Plex:h14,Source\ Code\ Pro:h15
-elseif has("gui_gtk2")
-	set gfn=Hack:h14,IBM\ Plex:h14,Source\ Code\ Pro:h15
-elseif has("linux")
+elseif has("gui_gtk2") || has("linux" || has("unix")
 	set gfn=Hack:h14,IBM\ Plex:h14,Source\ Code\ Pro:h15
 endif
 
@@ -134,7 +137,8 @@ set nofoldenable
 
 nnoremap <space> za
 
-" Editing cursor
+" Editing cursor in Windows
+
 if has("win32") || has("gui_win32")
 	set guicursor=n-v-c-i:block-Cursor
 	set guicursor+=i:blinkwait10
