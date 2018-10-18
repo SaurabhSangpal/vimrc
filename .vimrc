@@ -110,8 +110,9 @@ map <C-o> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
 
 "Remapping ESC
-
-inoremap <S-Tab> <Esc>
+" Temporarily disabled rebind because most combinations don't work
+" Using C-[ for now
+" inoremap <S-Tab> <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change the document traversal speed                               "
