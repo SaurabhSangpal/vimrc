@@ -8,8 +8,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-syntastic/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-airline/vim-airline'
+Plugin 'junegunn/fzf'
 
-" Adding different autocomplete options for Windows and Linux.
+" Different autocomplete plugins for Win and Linux
 
 if has("win32") || has("gui_win32")
 	Plugin 'Shougo/neocomplete.vim'
@@ -17,17 +21,7 @@ elseif has("linux") || has("gui_gtk") || has("unix")
 	Plugin 'Valloric/YouCompleteMe'
 endif
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-airline/vim-airline'
-Plugin 'junegunn/fzf'
-
-" Use this next plugin only if you want to learn advanced
-" vim controls.
-
-"Plugin 'wikitopian/hardmode'
-
-" Adding different colorschemes for Windows and Linux.
+" Different themes for Win and Linux
 
 if has("win32") || has("gui_win32")
 	Plugin 'colepeters/spacemacs-theme.vim'
@@ -41,7 +35,23 @@ filetype plugin indent on    " required
 
 source $VIMRUNTIME/vimrc_example.vim
 
-" Enabling Neocomplete on startup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Creating a leader key                                             "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader = ","
+
+" Quicksave
+
+nmap <leader>w :w!<cr>
+
+" Remap Esc
+
+inoremap <leader><leader> <Esc>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enabling Neocomplete on startup                                   "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("win32") || has("gui_win32")
 	let g:neocomplete#enable_at_startup = 1
@@ -78,14 +88,30 @@ call matchadd('colorcolumn', '\%81v', 100)
 set number
 set number relativenumber
 
+" No error sounds
+
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Ignore case when searching
+
+set ignorecase
+set smartcase
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Setting the font                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if has("win32")
-	set gfn=Hack:h14,IBM\ Plex:h14,Source\ Code\ Pro:h15
-elseif has("gui_gtk2") || has("linux" || has("unix")
-	set gfn=Hack:h14,IBM\ Plex:h14,Source\ Code\ Pro:h15
+if has("gui_running")
+	if has("gui_gtk2") || has("gui_gtk")
+		set guifont=Hack\ 14
+	elseif has("gui_win32")
+		set guifont=Hack\ 14
+	endif
+else
+	set gfn=Hack\ 14
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -108,11 +134,6 @@ set guioptions-=L
 
 map <C-o> :NERDTreeToggle<CR>
 map <C-f> :NERDTreeFind<CR>
-
-"Remapping ESC
-" Temporarily disabled rebind because most combinations don't work
-" Using C-[ for now
-" inoremap <S-Tab> <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Change the document traversal speed                               "
