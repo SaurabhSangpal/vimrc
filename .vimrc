@@ -50,6 +50,18 @@ nmap <leader>w :w!<cr>
 inoremap <leader><leader> <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setting Wildmenu                                                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set wildmenu
+set wildignore=*.o,*~,*.pyc
+if has("win32")
+	set wildignore+=.git\*
+else
+	set wildignore+=/.git/*,.DS_Store
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enabling Neocomplete on startup                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
