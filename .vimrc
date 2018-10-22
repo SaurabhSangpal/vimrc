@@ -89,13 +89,13 @@ elseif has("win32") || has("gui_win32")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Changes the color of the column if you cross 100 chars             "
+"Changes the color of the column if you cross 80 chars             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 highlight ColorColumn ctermbg=red
-call matchadd('colorcolumn', '\%81v', 100)
+call matchadd('colorcolumn', '\%81v', 80)
 
-" Display Number
+" Display Numbers on the left
 
 set number
 set number relativenumber
@@ -116,21 +116,13 @@ set smartcase
 "Setting the font                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if has("gui_running")
-	if has("gui_gtk2") || has("gui_gtk")
-		set guifont=Hack\ 14
-	elseif has("gui_win32")
-		set guifont=Hack\ 14
-	endif
-else
-	set gfn=Hack\ 14
-endif
+set gfn=IBM\ Plex\ Mono\ 12
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Setting the window size                                            "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set lines=40 columns=90
+set lines=30 columns=80
 set encoding=utf-8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

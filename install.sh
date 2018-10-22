@@ -15,6 +15,7 @@ if [ -e ~/.vimrc ]; then
 else
 	echo "~/.vimrc not found"
 	cp .vimrc ~/.vimrc
+	echo "Copied .vimrc to ~/.vimrc"
 fi
 
 # Checking if Vundle is available
