@@ -16,7 +16,9 @@ Plugin 'junegunn/fzf'
 " Different autocomplete plugins for Win and Linux
 
 if has("win32") || has("gui_win32")
-	Plugin 'Shougo/neocomplete.vim'
+	Plugin 'Shougo/deoplete.nvim'
+	Plugin 'roxma/nvim-yarp'
+	Plugin 'roxma/vim-hug-neovim-rpc'
 elseif has("linux") || has("gui_gtk") || has("unix")
 	Plugin 'Valloric/YouCompleteMe'
 endif
@@ -66,7 +68,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if has("win32") || has("gui_win32")
-	let g:neocomplete#enable_at_startup = 1
+	let g:deoplete#enable_at_startup = 1
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -116,7 +118,7 @@ set smartcase
 "Setting the font                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set gfn=IBM\ Plex\ Mono\ 12
+set gfn=IBM\ Plex\ Mono\ 11
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Setting the window size                                            "
@@ -143,8 +145,8 @@ map <C-f> :NERDTreeFind<CR>
 " Change the document traversal speed                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <C-y> 5<C-y>
-noremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
+nnoremap <C-e> 5<C-e>
 
 " Disable mouse
 
