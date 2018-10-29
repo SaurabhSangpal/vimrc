@@ -12,16 +12,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'junegunn/fzf'
-
-" Different autocomplete plugins for Win and Linux
-
-if has("win32") || has("gui_win32")
-	Plugin 'Shougo/deoplete.nvim'
-	Plugin 'roxma/nvim-yarp'
-	Plugin 'roxma/vim-hug-neovim-rpc'
-elseif has("linux") || has("gui_gtk") || has("unix")
-	Plugin 'Valloric/YouCompleteMe'
-endif
+Plugin 'Valloric/YouCompleteMe'
 
 " Different themes for Win and Linux
 
@@ -47,6 +38,9 @@ let mapleader = ","
 
 nmap <leader>w :w!<cr>
 
+" Force quit
+nmap <leader>q :q!<cr>
+
 " Remap Esc
 
 inoremap <leader><leader> <Esc>
@@ -61,14 +55,6 @@ if has("win32")
 	set wildignore+=.git\*
 else
 	set wildignore+=/.git/*,.DS_Store
-endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enabling Neocomplete on startup                                   "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if has("win32") || has("gui_win32")
-	let g:deoplete#enable_at_startup = 1
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,7 +83,7 @@ endif
 highlight ColorColumn ctermbg=red
 call matchadd('colorcolumn', '\%81v', 80)
 
-" Display Numbers on the left
+" Display Numbers
 
 set number
 set number relativenumber
@@ -118,7 +104,7 @@ set smartcase
 "Setting the font                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set gfn=IBM\ Plex\ Mono\ 11
+set gfn=IBM\ Plex\ Mono:h11:cANSI
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Setting the window size                                            "
