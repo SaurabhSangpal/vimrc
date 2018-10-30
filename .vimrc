@@ -13,14 +13,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'junegunn/fzf'
 Plugin 'Valloric/YouCompleteMe'
-
-" Different themes for Win and Linux
-
-if has("win32") || has("gui_win32")
-	Plugin 'colepeters/spacemacs-theme.vim'
-elseif has("gui_gtk") || has("linux") || has("unix")
-	Plugin 'dracula/vim'
-endif
+Plugin 'dracula/vim'
 
 call vundle#end()            " required
 
@@ -66,16 +59,9 @@ set nowb
 set noswapfile
 set noundofile
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Picking Colorscheme                                               "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setting the colorscheme
 
-if has("linux") || has("gui_gtk2") || has("unix")
-	colorscheme dracula
-elseif has("win32") || has("gui_win32")
-	colorscheme spacemacs-theme
-endif
-
+colorscheme dracula
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Changes the color of the column if you cross 80 chars             "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
