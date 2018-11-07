@@ -90,7 +90,11 @@ set smartcase
 "Setting the font                                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set gfn=IBM\ Plex\ Mono:h11:cANSI
+if has("win32") || has("gui_win32")
+	set gfn=IBM\ Plex\ Mono:h11:cANSI
+else
+	set gfn=IBM\ Plex\ Mono:h11
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Setting the window size                                            "
@@ -141,6 +145,4 @@ nnoremap <space> za
 
 if has("win32") || has("gui_win32")
 	set guicursor=n-v-c-i:block-Cursor
-	set guicursor+=i:blinkwait10
-	set guicursor+=n-v-c:blinkon0
 endif
