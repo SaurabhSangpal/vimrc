@@ -12,7 +12,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'junegunn/fzf'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'dracula/vim'
 
 call vundle#end()            " required
@@ -146,3 +145,13 @@ nnoremap <space> za
 if has("win32") || has("gui_win32")
 	set guicursor=n-v-c-i:block-Cursor
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Add Clang Format Support                                          "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! Formatonsave()
+	let l:formatdiff = 1
+	pyf "C:/Program Files/LLVM/share/clang/clang-format.py"
+endfunction
+autocmd BufWritePre *.h,*.cc,*.cpp,*.hpp call Formatonsave()
