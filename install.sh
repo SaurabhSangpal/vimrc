@@ -33,9 +33,4 @@ fi
 
 vim +PluginInstall +qall
 
-echo "Setting up YCM"
-echo "Make sure you have python3-dev"
-
-python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
-
 echo "Setup complete. You can use Vim now"
