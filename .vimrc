@@ -37,6 +37,13 @@ nmap <leader>q :q!<cr>
 
 inoremap <leader><leader> <Esc>
 
+" Remap buffer bindings
+
+nmap <leader>p :bprevious<cr>
+nmap <leader>n :bnext<cr>
+nmap <leader>f :bfirst<cr>
+nmap <leader>l :blast<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setting Wildmenu                                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,6 +159,6 @@ endif
 
 function! Formatonsave()
 	let l:formatdiff = 1
-	pyf "C:/Program Files/LLVM/share/clang/clang-format.py"
+	python3 "C:/Program Files/LLVM/share/clang/clang-format.py"
 endfunction
 autocmd BufWritePre *.h,*.cc,*.cpp,*.hpp call Formatonsave()
